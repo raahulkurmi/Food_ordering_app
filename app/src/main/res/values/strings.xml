@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Food ordering app</string>
+    <string name="have_a_restaurent_quality_food_nat_home">Have a Restaurent quality Food \nat home</string>
+    <string name="design_by_nrahul">Design by\nRahul</string>
+    <string name="enter_email_or_phone">Enter Email or Phone</string>
+    <string name="enter_the_password">Enter the password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_up_here">Sign up here</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="enter_email">Enter Email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
