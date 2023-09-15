@@ -11,10 +11,12 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.foodorderingapp.R
-import com.example.foodorderingapp.adapter.menuadapterrecycler
+import com.example.foodorderingapp.adapter.pouplarmenuadapter
+
 import com.example.foodorderingapp.databinding.FragmentHomeBinding
-import com.example.foodorderingapp.modelclass.Recyclerviewmodelclas
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.example.foodorderingapp.modelclass.popularmenuclass
+//import com.example.foodorderingapp.modelclass.Recyclerviewmodelclas
+import com.example.foodorderingapp.modelclass.recyclerviewmodelclas
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 
@@ -22,7 +24,8 @@ class homeFragment : Fragment() {
     private val binding by lazy {
         FragmentHomeBinding.inflate(layoutInflater)
     }
-    val itemlist = ArrayList<Recyclerviewmodelclas>()
+    val itemlist = ArrayList<popularmenuclass>()
+
 
 
 
@@ -38,22 +41,38 @@ class homeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner1,"Burger","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner2,"Chicken burger","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner3,"Steak chicken","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner4,"Americano","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner5,"Vodka","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner7,"Whisky","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner8,"tequila","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner,"pancake","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner1,"Herbal pancake","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner2,"Herbal pancake","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner3,"Herbal pancake","$7"))
-        itemlist.add(Recyclerviewmodelclas(R.drawable.banner4,"Herbal pancake","$7"))
+
+//        cartViewModel = ViewModelProvider(requireActivity()).get(cartviewmodel::class.java)
+        val adapter = pouplarmenuadapter(itemlist, requireActivity())
+        binding.recyclerview.adapter = adapter
+//        cartViewModel = ViewModelProvider(requireActivity()).get(cartviewmodel::class.java)
+
+        // Initialize the cartFragment
+
+        // ... Existing code ...
+
+
+//        binding.recyclerview.adapter = adapter
+    // Implement the onItemClick method
+
+
+
+        itemlist.add(popularmenuclass(R.drawable.banner1,"Burger","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner2,"Chicken burger","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner3,"Steak chicken","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner4,"Americano","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner5,"Vodka","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner7,"Whisky","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner8,"tequila","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner,"pancake","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner1,"Herbal pancake","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner2,"Herbal pancake","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner3,"Herbal pancake","$7"))
+        itemlist.add(popularmenuclass(R.drawable.banner4,"Herbal pancake","$7"))
 
         binding.recyclerview.layoutManager= LinearLayoutManager(requireContext())
-        val adaptor=menuadapterrecycler(itemlist)
-        binding.recyclerview.adapter=adaptor
+
+        binding.recyclerview.adapter=pouplarmenuadapter(itemlist,requireActivity())
         binding.recyclerview.setHasFixedSize(true)
 
 //
@@ -93,7 +112,7 @@ class homeFragment : Fragment() {
 
         binding.imageSlider.setItemClickListener(object :ItemClickListener{
             override fun doubleClick(position: Int) {
-                TODO("Not yet implemented")
+//                TODO("Not yet implemented")
             }
 
             override fun onItemSelected(position: Int) {
@@ -110,8 +129,8 @@ class homeFragment : Fragment() {
 
         })
 
-    }
 
+    }
 
 
 

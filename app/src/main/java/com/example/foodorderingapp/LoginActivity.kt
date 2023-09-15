@@ -69,8 +69,15 @@ binding.button.setOnClickListener {
 
      binding.googlesignin.setOnClickListener {
          val intent=googleSignInClient.signInIntent
-         Launcher.launch(intent)
+         if (intent != null) {
+             Launcher.launch(intent)
+         } else {
+             Toast.makeText(this, "Google Sign-in Intent is null", Toast.LENGTH_SHORT).show()
+         }
      }
+        binding.linearLayout2.setOnClickListener {
+            startActivity(Intent(this@LoginActivity,enterthenumber::class.java))
+        }
 
 
 
@@ -86,7 +93,7 @@ binding.button.setOnClickListener {
 
     private val Launcher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         result->
-        if (result.resultCode==Activity.RESULT_OK){
+        if (result.resultCode== RESULT_OK){
             val task=GoogleSignIn.getSignedInAccountFromIntent(result.data)
             if(task.isSuccessful){
                 val account:GoogleSignInAccount?=task.result

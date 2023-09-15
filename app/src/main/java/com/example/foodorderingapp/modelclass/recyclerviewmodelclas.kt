@@ -1,6 +1,6 @@
 package com.example.foodorderingapp.modelclass
 
-data class Recyclerviewmodelclas(
+data class recyclerviewmodelclas(
     var image:Int,
     var foodname:String,
     var price:String,

@@ -11,4 +11,10 @@
     <string name="enter_email">Enter Email</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu">Menu</string>
+    <string name="phone">Phone</string>
+    <string name="proceed_to_buy">Proceed to buy</string>
+    <string name="accompanist_will_be_deprecating_the_following_libraries_with_no_replacement_they_will_remain_in_accompanist_in_a_deprecated_state_for_two">Accompanist will be deprecating the following libraries, with no replacement: ... They will remain in Accompanist in a deprecated state for two ...</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="textview">TextView</string>
 </resources>

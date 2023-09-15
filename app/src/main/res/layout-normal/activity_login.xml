@@ -134,7 +134,7 @@
             android:layout_height="57dp"
             android:paddingStart="5dp"
             android:paddingLeft="5dp"
-            app:srcCompat="@drawable/facebook_3_1" />
+            app:srcCompat="@drawable/baseline_phone_android_24" />
 
         <TextView
             android:id="@+id/Facebooklogin"
@@ -142,7 +142,7 @@
             android:layout_height="57dp"
             android:paddingStart="12dp"
             android:paddingTop="15dp"
-            android:text="Facebook"
+            android:text="Phone"
             android:textSize="20sp"
 
 

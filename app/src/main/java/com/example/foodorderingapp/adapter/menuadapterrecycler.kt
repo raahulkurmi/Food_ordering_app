@@ -1,35 +1,73 @@
-package com.example.foodorderingapp.adapter
-
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.android.car.ui.toolbar.MenuItem.OnClickListener
 import com.example.foodorderingapp.databinding.MennurecyclerviewBinding
-import com.example.foodorderingapp.modelclass.Recyclerviewmodelclas
+import com.example.foodorderingapp.detailactivity
+import com.example.foodorderingapp.modelclass.recyclerviewmodelclas
+
+class menuadapterrecycler(
+    private var itemList:ArrayList<recyclerviewmodelclas>,
+    private val context: Context,
+
+) : RecyclerView.Adapter<menuadapterrecycler.mycustomadapter>() {
+    private var isFiltering = false
+    private val originalList = ArrayList(itemList)
+    private val itemClickListener:OnClickListener?=null
 
 
-class menuadapterrecycler(val itemlist:ArrayList<Recyclerviewmodelclas>): RecyclerView.Adapter<menuadapterrecycler.mycustomadapter>() {
-    class mycustomadapter(var binding:MennurecyclerviewBinding):RecyclerView.ViewHolder(binding.root) {
-
-
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): mycustomadapter {
-        return mycustomadapter(MennurecyclerviewBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        val binding = MennurecyclerviewBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return mycustomadapter(binding)
     }
 
     override fun getItemCount(): Int {
-        return itemlist.size
+        return itemList.size
+    }
+    inner class mycustomadapter(val binding: MennurecyclerviewBinding) :
+        RecyclerView.ViewHolder(binding.root){
+
     }
 
     override fun onBindViewHolder(holder: mycustomadapter, position: Int) {
-        val position1=itemlist[position]
+        val position1 = itemList[position]
         holder.binding.imageView6.setImageResource(position1.image)
-        holder.binding.textView15.text= itemlist[position].foodname
-        holder.binding.textView16.text=itemlist[position].price
+        holder.binding.textView15.text = itemList[position].foodname
+        holder.binding.textView16.text = itemList[position].price
+
+
+        holder.binding.menuadpaterid.setOnClickListener {
+            val intent=Intent(context,detailactivity::class.java)
+            intent.putExtra("Menutitemname",position1.image)
+            intent.putExtra("menufoodname",position1.foodname)
+            intent.putExtra("menufoodprice",position1.price)
+            context.startActivity(intent)
+
+
+        }
 
 
 
 
+    }
+    fun filter(query: String) {
+        if (query.isBlank()) {
+            itemList = ArrayList(originalList)
+            isFiltering = false
+        } else {
+            val lowerCaseQuery = query.lowercase()
+            itemList = originalList.filter {
+                it.foodname.lowercase().contains(lowerCaseQuery)
+            } as ArrayList<recyclerviewmodelclas>
+            isFiltering = true
+        }
+        notifyDataSetChanged()
     }
 }

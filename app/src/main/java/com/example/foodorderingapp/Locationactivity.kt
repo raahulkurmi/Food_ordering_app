@@ -1,6 +1,7 @@
 package com.example.foodorderingapp
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
@@ -10,13 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.foodorderingapp.databinding.ActivityLocationactivityBinding
 
+
 class Locationactivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLocationactivityBinding
+    private val binding by lazy {
+        ActivityLocationactivityBinding.inflate(layoutInflater)
+    }
     private val REQ_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLocationactivityBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
         val list: Array<String> = arrayOf(
@@ -39,6 +43,11 @@ class Locationactivity : AppCompatActivity() {
                 )
             }
         }
+        binding.listoflocation.setOnItemClickListener { adapterView, view, i, l ->
+            startActivity(Intent(this@Locationactivity,Homeactivity::class.java))
+
+        }
+
     }
 
     override fun onRequestPermissionsResult(
@@ -56,6 +65,7 @@ class Locationactivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Permission denied", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun checkPermission(): Boolean {

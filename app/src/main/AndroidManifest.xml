@@ -16,13 +16,21 @@
         android:theme="@style/Theme.FoodOrderingApp"
         tools:targetApi="31">
         <activity
+            android:name=".detailactivity"
+            android:exported="false" />
+        <activity
+            android:name=".payoutactivity"
+            android:exported="false" />
+        <activity
+            android:name=".Verifynumber"
+            android:exported="false" />
+        <activity
+            android:name=".enterthenumber"
+            android:exported="false" />
+        <activity
             android:name=".Homeactivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Locationactivity"
@@ -39,7 +47,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
