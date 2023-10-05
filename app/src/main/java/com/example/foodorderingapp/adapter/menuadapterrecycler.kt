@@ -43,31 +43,23 @@ class menuadapterrecycler(
         holder.binding.textView16.text = itemList[position].price
 
 
-        holder.binding.menuadpaterid.setOnClickListener {
-            val intent=Intent(context,detailactivity::class.java)
-            intent.putExtra("Menutitemname",position1.image)
-            intent.putExtra("menufoodname",position1.foodname)
-            intent.putExtra("menufoodprice",position1.price)
-            context.startActivity(intent)
 
-
-        }
 
 
 
 
     }
-    fun filter(query: String) {
-        if (query.isBlank()) {
-            itemList = ArrayList(originalList)
-            isFiltering = false
-        } else {
-            val lowerCaseQuery = query.lowercase()
-            itemList = originalList.filter {
-                it.foodname.lowercase().contains(lowerCaseQuery)
-            } as ArrayList<recyclerviewmodelclas>
-            isFiltering = true
-        }
-        notifyDataSetChanged()
-    }
+//    fun filter(query: String) {
+//        if (query.isBlank()) {
+//            itemList = ArrayList(originalList)
+//            isFiltering = false
+//        } else {
+//            val lowerCaseQuery = query.lowercase()
+//            itemList = originalList.filter {
+//                it.foodname.lowercase().contains(lowerCaseQuery)
+//            } as ArrayList<recyclerviewmodelclas>
+//            isFiltering = true
+//        }
+//        notifyDataSetChanged()
+//    }
 }

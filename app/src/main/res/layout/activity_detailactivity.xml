@@ -7,27 +7,26 @@
     tools:context=".detailactivity">
 
     <ImageButton
-        android:id="@+id/imageView10"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/car_ui_icon_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/car_ui_icon_arrow_back"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="Food Name"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -69,6 +68,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp"
         android:textSize="20sp"
+
         android:textColor="@color/black"
         android:text="@string/accompanist_will_be_deprecating_the_following_libraries_with_no_replacement_they_will_remain_in_accompanist_in_a_deprecated_state_for_two"
         app:layout_constraintEnd_toEndOf="@+id/textView34"
@@ -99,6 +99,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView37"
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="350dp"
+        android:background="@drawable/edittextshape"
+        android:text="Add to Cart"
+        android:id="@+id/detailaddtocard"
+        android:textColor="@color/green"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

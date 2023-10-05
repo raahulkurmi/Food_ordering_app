@@ -51,6 +51,7 @@ class cartadapter(
         holder.binding.imageView9.setOnClickListener {
             delete(position)
         }
+
     }
 
     private fun delete(position: Int) {

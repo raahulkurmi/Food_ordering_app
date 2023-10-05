@@ -25,8 +25,8 @@ class Locationactivity : AppCompatActivity() {
 
         val list: Array<String> = arrayOf(
             "Rajkot", "Ahemdabad", "Morbi", "Jamnagar", "Vadodora",
-            "Diu", "Somnath", "Dwarka", "Daman", "Gandhinagar"
-        )
+            "Diu", "Somnath", "Dwarka", "Daman", "Gandhinagar")
+
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
         binding.listoflocation.setAdapter(arrayAdapter)
 

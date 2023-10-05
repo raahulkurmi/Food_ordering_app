@@ -21,6 +21,9 @@ class payoutactivity : AppCompatActivity() {
             val bottomsheet=congratsbottomsheet()
             bottomsheet.show(this@payoutactivity.supportFragmentManager,"test")
         }
+        binding.button4.setOnClickListener {
+            finish()
+        }
 
 
     }

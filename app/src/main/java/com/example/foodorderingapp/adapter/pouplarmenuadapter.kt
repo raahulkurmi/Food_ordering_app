@@ -1,15 +1,20 @@
 package com.example.foodorderingapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodorderingapp.Fragment.cartFragment
+import com.example.foodorderingapp.R
 import com.example.foodorderingapp.databinding.PopularmenuBinding
+import com.example.foodorderingapp.detailactivity
 import com.example.foodorderingapp.modelclass.popularmenuclass
 
 class pouplarmenuadapter(
     val itemlist: ArrayList<popularmenuclass>, var requireActivity: FragmentActivity
-): RecyclerView.Adapter<pouplarmenuadapter.mycustomadapter>() {
+) : RecyclerView.Adapter<pouplarmenuadapter.mycustomadapter>() {
     private var filteredItemList: ArrayList<popularmenuclass> = ArrayList(itemlist)
 
 
@@ -30,9 +35,18 @@ class pouplarmenuadapter(
         holder.binding.imageView6.setImageResource(position1.image)
         holder.binding.textView15.text = position1.foodname
         holder.binding.textView16.text = position1.price
+        holder.binding.popularid.setOnClickListener {
+            val intent=Intent(requireActivity,detailactivity::class.java)
+            intent.putExtra("imageview",position1.image)
+            intent.putExtra("textview",position1.foodname)
+            requireActivity.startActivity(intent)
+
+
+
+        }
+
 
     }
-
 
     fun filter(query: String) {
         filteredItemList.clear()
